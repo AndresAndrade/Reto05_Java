@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form xmlns="http://www.intellij.com/uidesigner/form/" version="1" bind-to-class="org.reto5.view.ReporteLideresGUI">
+  <grid id="27dc6" binding="mainPanel" layout-manager="GridLayoutManager" row-count="4" column-count="2" same-size-horizontally="false" same-size-vertically="false" hgap="-1" vgap="-1">
+    <margin top="0" left="0" bottom="0" right="0"/>
+    <constraints>
+      <xy x="20" y="20" width="500" height="400"/>
+    </constraints>
+    <properties/>
+    <border type="none"/>
+    <children>
+      <component id="6ee2c" class="javax.swing.JLabel" binding="lbCargo">
+        <constraints>
+          <grid row="0" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Cargo:"/>
+        </properties>
+      </component>
+      <component id="3b862" class="javax.swing.JLabel" binding="lbCiudad">
+        <constraints>
+          <grid row="1" column="0" row-span="1" col-span="1" vsize-policy="0" hsize-policy="0" anchor="8" fill="0" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Ciudad de residencia:"/>
+        </properties>
+      </component>
+      <component id="ae618" class="javax.swing.JComboBox" binding="cbCargo">
+        <constraints>
+          <grid row="0" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="--Seleccione--"/>
+            <item value="Accionista"/>
+            <item value="Asesor"/>
+            <item value="Asociado"/>
+            <item value="Coordinador"/>
+            <item value="Gerente"/>
+          </model>
+        </properties>
+      </component>
+      <component id="bef1c" class="javax.swing.JComboBox" binding="cbCiudad">
+        <constraints>
+          <grid row="1" column="1" row-span="1" col-span="1" vsize-policy="0" hsize-policy="2" anchor="8" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <model>
+            <item value="--Seleccione--"/>
+            <item value="Armenia"/>
+            <item value="Barranquilla"/>
+            <item value="Bogota"/>
+            <item value="Bucaramanga"/>
+            <item value="Cartagena"/>
+            <item value="Cartago"/>
+            <item value="Dubai"/>
+            <item value="Ibague"/>
+            <item value="Londres"/>
+            <item value="Manizales"/>
+            <item value="Monteria"/>
+            <item value="Neiva"/>
+            <item value="Paris"/>
+            <item value="Pereira"/>
+            <item value="Quibdo"/>
+            <item value="Santa Marta"/>
+          </model>
+        </properties>
+      </component>
+      <scrollpane id="bae3">
+        <constraints>
+          <grid row="2" column="0" row-span="1" col-span="2" vsize-policy="7" hsize-policy="7" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties/>
+        <border type="none"/>
+        <children>
+          <component id="d43eb" class="javax.swing.JTable" binding="tbLideres">
+            <constraints/>
+            <properties/>
+          </component>
+        </children>
+      </scrollpane>
+      <component id="7ab31" class="javax.swing.JButton" binding="btnMostar">
+        <constraints>
+          <grid row="3" column="0" row-span="1" col-span="2" vsize-policy="0" hsize-policy="3" anchor="0" fill="1" indent="0" use-parent-layout="false"/>
+        </constraints>
+        <properties>
+          <text value="Mostrar Todo"/>
+        </properties>
+      </component>
+    </children>
+  </grid>
+</form>

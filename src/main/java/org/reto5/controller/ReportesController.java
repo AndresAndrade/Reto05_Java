@@ -23,16 +23,55 @@ public class ReportesController {
         this.liderDao = new LiderDao();
     }
 
+    //Metodos correspondientes a ComprasDao
     public List<ComprasVo> listarCompras(String proveedor, String ciudad) throws SQLException {
         return comprasDao.buscarCompras(proveedor, ciudad);
     }
 
+    public List<ComprasVo> listarCompras(String proveedor) throws SQLException {
+        return comprasDao.buscarCompras(proveedor);
+    }
+
+    public List<ComprasVo> listarComprasCiudad(String ciudad) throws SQLException {
+        return comprasDao.buscarComprasCiudad(ciudad);
+    }
+
+    public List<ComprasVo> listarCompras() throws SQLException {
+        return comprasDao.buscarCompras();
+    }
+
+    //Metodos correspondientes a ProyectosDao
     public List<ProyectosVo> listarProyectos(String clasificacion, String[] ciudades) throws SQLException {
         return proyectosDao.buscarProyectos(clasificacion, ciudades);
     }
 
+    public List<ProyectosVo> listarProyectos(String clasificacion) throws SQLException {
+        return proyectosDao.buscarProyectos(clasificacion);
+    }
+
+    public List<ProyectosVo> listarProyectos(String[] ciudades) throws SQLException {
+        return proyectosDao.buscarProyectos(ciudades);
+    }
+
+    public List<ProyectosVo> listarProyectos() throws SQLException {
+        return proyectosDao.buscarProyectos();
+    }
+
+    //Metodos correspondientes a LiderDao
     public List<LiderVo> listarlideres() throws SQLException {
         return liderDao.listarLideres();
+    }
+
+    public List<LiderVo> listarlideres(String cargo) throws SQLException {
+        return liderDao.listarLideres(cargo);
+    }
+
+    public List<LiderVo> listarLideresCiudad(String ciudad) throws SQLException {
+        return liderDao.listarLideresCiudad(ciudad);
+    }
+
+    public List<LiderVo> listarlideres(String cargo, String ciudad) throws SQLException {
+        return liderDao.listarLideres(cargo, ciudad);
     }
 }
 

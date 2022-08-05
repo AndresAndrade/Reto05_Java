@@ -1,7 +1,7 @@
 package org.reto5.view;
 
 import org.reto5.controller.ReportesController;
-import org.reto5.model.vo.ComprasVo;
+import org.reto5.model.vo.LiderVo;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,73 +10,70 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ReporteComprasGUI extends JFrame {
-
+public class ReporteLideresGUI extends JFrame{
     private DefaultTableModel tableModel;
     private ReportesController controller;
-    private JTable tbCompras;
-    private JComboBox cbProveedor;
+    private JComboBox cbCargo;
     private JComboBox cbCiudad;
+    private JTable tbLideres;
     private JPanel mainPanel;
-    private JLabel lbProveedor;
+    private JLabel lbCargo;
     private JLabel lbCiudad;
     private JButton btnMostar;
 
-    public ReporteComprasGUI() {
+    public ReporteLideresGUI() {
+
         controller = new ReportesController();
         setContentPane(mainPanel);
-        setTitle("REPORTE COMPRAS");
+        setTitle("REPORTE LIDERES");
         setSize(550, 550);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
         //Encabezados de la tabla
-        String[] encabezados = {"ID Compra", "Constructora", "Banco Vinculado"};
+        String[] encabezados = {"ID Lider", "Nombre", "Apellido", "Ciudad de Residencia"};
         tableModel = new DefaultTableModel(null, encabezados);
-        tbCompras.setModel(tableModel);
+        tbLideres.setModel(tableModel);
 
         ActionListener listener = new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-
-                if (cbProveedor.getSelectedIndex() == 0) {
+                if (cbCargo.getSelectedIndex() == 0) {
                     try {
                         mostrarDatosCiudad(cbCiudad.getSelectedItem().toString());
                     } catch (SQLException ex) {
-                        System.out.println("Error SQl " + ex.getMessage());;
+                        System.err.println("Error SQl " + ex.getMessage());;
                     }
                 } else if (cbCiudad.getSelectedIndex() == 0) {
                     try {
-                        mostrarDatos(cbProveedor.getSelectedItem().toString());
+                        mostrarDatos(cbCargo.getSelectedItem().toString());
                     } catch (SQLException ex) {
-                        System.out.println("Error SQL " + ex.getMessage());;
+                        System.err.println("Error SQl " + ex.getMessage());;
                     }
                 } else {
                     try {
-                        mostrarDatos(cbProveedor.getSelectedItem().toString(), cbCiudad.getSelectedItem().toString());
+                        mostrarDatos(cbCargo.getSelectedItem().toString(), cbCiudad.getSelectedItem().toString());
                     } catch (SQLException ex) {
-                        System.out.println("Error SQL " + ex.getMessage());;
+                        System.err.println("Error SQl " + ex.getMessage());;
                     }
                 }
-
             }
         };
+        cbCargo.addActionListener(listener);
         cbCiudad.addActionListener(listener);
-        cbProveedor.addActionListener(listener);
 
         btnMostar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                cbCiudad.setSelectedIndex(0);
+                cbCargo.setSelectedIndex(0);
                 try {
-                    cbCiudad.setSelectedIndex(0);
-                    cbProveedor.setSelectedIndex(0);
                     mostrarDatos();
                 } catch (SQLException ex) {
                     System.err.println("Error SQl " + ex.getMessage());;
                 }
             }
         });
-
         try {
             mostrarDatos();
         } catch (SQLException ex) {
@@ -90,29 +87,29 @@ public class ReporteComprasGUI extends JFrame {
         }
     }
 
-    public void mostrarDatos(String proveedor, String ciudad) throws SQLException {
+    public void mostrarDatos(String cargo) throws SQLException {
         actualizarTabla();
-        List<ComprasVo> listaCompras = controller.listarCompras(proveedor, ciudad);
-        for (ComprasVo compra : listaCompras) {
-            Object[] objeto = {compra.getIdCompra(), compra.getConstructora(), compra.getBancoVinculado()};
+        List<LiderVo> listaLideres = controller.listarlideres(cargo);
+        for (LiderVo lider : listaLideres) {
+            Object[] objeto = {lider.getIdLider(), lider.getNombre(), lider.getPrimerApellido(), lider.getCiudadResidencia()};
             tableModel.addRow(objeto);
         }
     }
 
-    public void mostrarDatos(String proveedor) throws SQLException {
+    public void mostrarDatos(String cargo, String ciudad) throws SQLException {
         actualizarTabla();
-        List<ComprasVo> listaCompras = controller.listarCompras(proveedor);
-        for (ComprasVo compra : listaCompras) {
-            Object[] objeto = {compra.getIdCompra(), compra.getConstructora(), compra.getBancoVinculado()};
+        List<LiderVo> listaLideres = controller.listarlideres(cargo, ciudad);
+        for (LiderVo lider : listaLideres) {
+            Object[] objeto = {lider.getIdLider(), lider.getNombre(), lider.getPrimerApellido(), lider.getCiudadResidencia()};
             tableModel.addRow(objeto);
         }
     }
 
     public void mostrarDatosCiudad(String ciudad) throws SQLException {
         actualizarTabla();
-        List<ComprasVo> listaCompras = controller.listarComprasCiudad(ciudad);
-        for (ComprasVo compra : listaCompras) {
-            Object[] objeto = {compra.getIdCompra(), compra.getConstructora(), compra.getBancoVinculado()};
+        List<LiderVo> listaLideres = controller.listarLideresCiudad(ciudad);
+        for (LiderVo lider : listaLideres) {
+            Object[] objeto = {lider.getIdLider(), lider.getNombre(), lider.getPrimerApellido(), lider.getCiudadResidencia()};
             tableModel.addRow(objeto);
         }
     }
@@ -121,17 +118,14 @@ public class ReporteComprasGUI extends JFrame {
         while (tableModel.getRowCount() > 0) {
             tableModel.removeRow(0);
         }
-        List<ComprasVo> listaCompras = controller.listarCompras();
-        for (ComprasVo compra : listaCompras) {
-            Object[] objeto = {compra.getIdCompra(), compra.getConstructora(), compra.getBancoVinculado()};
+        List<LiderVo> listaLideres = controller.listarlideres();
+        for (LiderVo lider : listaLideres) {
+            Object[] objeto = {lider.getIdLider(), lider.getNombre(), lider.getPrimerApellido(), lider.getCiudadResidencia()};
             tableModel.addRow(objeto);
         }
     }
 
-
-
-    public static void main(String[] args) throws SQLException {
-        ReporteComprasGUI myReportesComprasGUI = new ReporteComprasGUI();
+    public static void main(String[] args) {
+        ReporteLideresGUI myReporteLideres = new ReporteLideresGUI();
     }
-
 }
