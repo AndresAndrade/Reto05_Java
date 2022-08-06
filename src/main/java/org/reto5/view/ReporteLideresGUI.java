@@ -11,6 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class ReporteLideresGUI extends JFrame{
+    private ReportesGUI reportesGUI;
     private DefaultTableModel tableModel;
     private ReportesController controller;
     private JComboBox cbCargo;
@@ -19,7 +20,8 @@ public class ReporteLideresGUI extends JFrame{
     private JPanel mainPanel;
     private JLabel lbCargo;
     private JLabel lbCiudad;
-    private JButton btnMostar;
+    private JButton btnMostrar;
+    private JButton btnRegresar;
 
     public ReporteLideresGUI() {
 
@@ -27,7 +29,7 @@ public class ReporteLideresGUI extends JFrame{
         setContentPane(mainPanel);
         setTitle("REPORTE LIDERES");
         setSize(550, 550);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
         //Encabezados de la tabla
@@ -62,7 +64,16 @@ public class ReporteLideresGUI extends JFrame{
         cbCargo.addActionListener(listener);
         cbCiudad.addActionListener(listener);
 
-        btnMostar.addActionListener(new ActionListener() {
+        btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reportesGUI = new ReportesGUI();
+                reportesGUI.setVisible(true);
+                dispose();
+            }
+        });
+
+        btnMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 cbCiudad.setSelectedIndex(0);

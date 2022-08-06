@@ -13,6 +13,7 @@ import java.util.List;
 
 public class ReporteProyectosGUI extends JFrame{
 
+    private ReportesGUI reportesGUI;
     private ReportesController controller;
     private DefaultTableModel tableModel;
     private JComboBox cbClasificacion;
@@ -26,14 +27,16 @@ public class ReporteProyectosGUI extends JFrame{
     private JLabel lbCiudad1;
     private JLabel lbCiudad2;
     private JLabel lbCoidad3;
-    private JButton btnMostar;
+    private JButton btnMostrar;
+    private JButton btnRegresar;
 
     public ReporteProyectosGUI() {
         controller = new ReportesController();
         setContentPane(mainPanel);
         setTitle("REPORTE PROYECTOS");
         setSize(600,550);
-        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setLocationByPlatform(false);
+        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
 
@@ -78,7 +81,16 @@ public class ReporteProyectosGUI extends JFrame{
         cbCiudad2.addActionListener(listener);
         cbCiudad3.addActionListener(listener);
 
-        btnMostar.addActionListener(new ActionListener() {
+        btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reportesGUI = new ReportesGUI();
+                reportesGUI.setVisible(true);
+                dispose();
+            }
+        });
+
+        btnMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
@@ -98,6 +110,8 @@ public class ReporteProyectosGUI extends JFrame{
         } catch (SQLException ex) {
             System.err.println("Error SQl " + ex.getMessage());;
         }
+
+
     }
 
     public void actualizarTabla() {

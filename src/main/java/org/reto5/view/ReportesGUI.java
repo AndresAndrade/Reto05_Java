@@ -22,7 +22,7 @@ public class ReportesGUI extends JFrame{
         this.reporteLideresGUI = new ReporteLideresGUI();*/
 
         setContentPane(mainPanel);
-        setTitle("REPORTE LIDERES");
+        setTitle("REPORTES");
         setSize(550, 550);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
@@ -32,6 +32,7 @@ public class ReportesGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 reporteProyectosGUI = new ReporteProyectosGUI();
                 reporteProyectosGUI.setVisible(true);
+                dispose(); //Con esto elimino la ventana previa
             }
         });
         btnLideres.addActionListener(new ActionListener() {
@@ -39,6 +40,7 @@ public class ReportesGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 reporteLideresGUI = new ReporteLideresGUI();
                 reporteLideresGUI.setVisible(true);
+                dispose();
             }
         });
         btnCompras.addActionListener(new ActionListener() {
@@ -46,6 +48,7 @@ public class ReportesGUI extends JFrame{
             public void actionPerformed(ActionEvent e) {
                 reporteComprasGUI = new ReporteComprasGUI();
                 reporteComprasGUI.setVisible(true);
+                dispose();
             }
         });
     }

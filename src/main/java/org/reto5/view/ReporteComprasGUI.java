@@ -14,13 +14,15 @@ public class ReporteComprasGUI extends JFrame {
 
     private DefaultTableModel tableModel;
     private ReportesController controller;
+    private ReportesGUI reportesGUI;
     private JTable tbCompras;
     private JComboBox cbProveedor;
     private JComboBox cbCiudad;
     private JPanel mainPanel;
     private JLabel lbProveedor;
     private JLabel lbCiudad;
-    private JButton btnMostar;
+    private JButton btnMostrar;
+    private JButton btnRegresar;
 
     public ReporteComprasGUI() {
         controller = new ReportesController();
@@ -64,7 +66,16 @@ public class ReporteComprasGUI extends JFrame {
         cbCiudad.addActionListener(listener);
         cbProveedor.addActionListener(listener);
 
-        btnMostar.addActionListener(new ActionListener() {
+        btnRegresar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reportesGUI = new ReportesGUI();
+                reportesGUI.setVisible(true);
+                dispose();
+            }
+        });
+
+        btnMostrar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
