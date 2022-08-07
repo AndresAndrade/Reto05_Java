@@ -2,9 +2,12 @@ package org.reto5.view;
 
 import org.reto5.controller.ReportesController;
 import org.reto5.model.vo.ProyectosVo;
+import org.reto5.util.TableUtil;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.swing.table.JTableHeader;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.sql.SQLException;
@@ -16,6 +19,8 @@ public class ReporteProyectosGUI extends JFrame{
     private ReportesGUI reportesGUI;
     private ReportesController controller;
     private DefaultTableModel tableModel;
+    private JTableHeader header;
+    private TableUtil tableUtil;
     private JComboBox cbClasificacion;
     private JComboBox cbCiudad1;
     private JComboBox cbCiudad2;
@@ -34,16 +39,31 @@ public class ReporteProyectosGUI extends JFrame{
         controller = new ReportesController();
         setContentPane(mainPanel);
         setTitle("REPORTE PROYECTOS");
-        setSize(600,550);
+        setSize(new Dimension(550, 600));
+        setLocationRelativeTo(null);
         setLocationByPlatform(false);
-        //setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
 
         //Encabezados de la tabla
-        String[] encabezados = {"ID Proyecto", "Constructora", "Número de Habitaciones", "Ciudad"};
+        tbProyectos.setFillsViewportHeight(true);
+        String[] encabezados = new String[]{"ID Proyecto", "Constructora", "Número de Habitaciones", "Ciudad"};
         tableModel = new DefaultTableModel(null, encabezados);
         tbProyectos.setModel(tableModel);
+        header = tbProyectos.getTableHeader();
+        Color myColor = new Color(117, 164, 120);
+        header.setBackground(myColor);
+        Font myFont = new Font("Roboto",Font.BOLD, 16);
+        header.setFont(myFont);
+
+        //Colores intercalados en filas
+        tableUtil = new TableUtil();
+        tableUtil.setColorUno(new Color(215,255,217));
+        tableUtil.setColorDos(new Color(165,214,167));
+        for (int i = 0; i < tbProyectos.getColumnCount(); i++){
+            tbProyectos.getColumnModel().getColumn(i).setCellRenderer(tableUtil);
+        }
 
         ActionListener listener = new ActionListener() {
             @Override

@@ -3,6 +3,7 @@ package org.reto5.view;
 import org.reto5.controller.ReportesController;
 
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -18,12 +19,10 @@ public class ReportesGUI extends JFrame{
     private JLabel lbOpcion;
 
     public ReportesGUI() {
-        /*this.reporteComprasGUI = new ReporteComprasGUI();
-        this.reporteLideresGUI = new ReporteLideresGUI();*/
-
         setContentPane(mainPanel);
         setTitle("REPORTES");
-        setSize(550, 550);
+        setSize(new Dimension(400, 400));
+        setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
 
