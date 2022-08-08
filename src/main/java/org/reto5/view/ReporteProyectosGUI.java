@@ -17,6 +17,8 @@ import java.util.List;
 public class ReporteProyectosGUI extends JFrame{
 
     private ReportesGUI reportesGUI;
+    private ReporteComprasGUI reporteComprasGUI;
+    private ReporteLideresGUI reporteLideresGUI;
     private ReportesController controller;
     private DefaultTableModel tableModel;
     private JTableHeader header;
@@ -34,6 +36,8 @@ public class ReporteProyectosGUI extends JFrame{
     private JLabel lbCoidad3;
     private JButton btnMostrar;
     private JButton btnRegresar;
+    private JButton btnCompras;
+    private JButton btnLideres;
 
     public ReporteProyectosGUI() {
         controller = new ReportesController();
@@ -52,15 +56,14 @@ public class ReporteProyectosGUI extends JFrame{
         tableModel = new DefaultTableModel(null, encabezados);
         tbProyectos.setModel(tableModel);
         header = tbProyectos.getTableHeader();
-        Color myColor = new Color(117, 164, 120);
-        header.setBackground(myColor);
+        header.setBackground(new Color(175,194,203));
         Font myFont = new Font("Roboto",Font.BOLD, 16);
         header.setFont(myFont);
 
         //Colores intercalados en filas
         tableUtil = new TableUtil();
-        tableUtil.setColorUno(new Color(215,255,217));
-        tableUtil.setColorDos(new Color(165,214,167));
+        tableUtil.setColorUno(new Color(255,255,255));
+        tableUtil.setColorDos(new Color(225,245,254));
         for (int i = 0; i < tbProyectos.getColumnCount(); i++){
             tbProyectos.getColumnModel().getColumn(i).setCellRenderer(tableUtil);
         }
@@ -105,7 +108,6 @@ public class ReporteProyectosGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 reportesGUI = new ReportesGUI();
-                reportesGUI.setVisible(true);
                 dispose();
             }
         });
@@ -125,13 +127,27 @@ public class ReporteProyectosGUI extends JFrame{
             }
         });
 
+        btnCompras.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reporteComprasGUI = new ReporteComprasGUI();
+                dispose();
+            }
+        });
+
+        btnLideres.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                reporteLideresGUI = new ReporteLideresGUI();
+                dispose();
+            }
+        });
+
         try {
             mostrarDatos();
         } catch (SQLException ex) {
             System.err.println("Error SQl " + ex.getMessage());;
         }
-
-
     }
 
     public void actualizarTabla() {

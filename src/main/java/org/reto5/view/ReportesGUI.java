@@ -30,7 +30,6 @@ public class ReportesGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 reporteProyectosGUI = new ReporteProyectosGUI();
-                reporteProyectosGUI.setVisible(true);
                 dispose(); //Con esto elimino la ventana previa
             }
         });
@@ -38,7 +37,6 @@ public class ReportesGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 reporteLideresGUI = new ReporteLideresGUI();
-                reporteLideresGUI.setVisible(true);
                 dispose();
             }
         });
@@ -46,7 +44,6 @@ public class ReportesGUI extends JFrame{
             @Override
             public void actionPerformed(ActionEvent e) {
                 reporteComprasGUI = new ReporteComprasGUI();
-                reporteComprasGUI.setVisible(true);
                 dispose();
             }
         });
