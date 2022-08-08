@@ -38,11 +38,11 @@ public class TableUtil extends DefaultTableCellRenderer {
             }
         }
 
-
         return this;
     }
 
     public boolean evaluarPar(int num) {
         return num % 2 == 0;
     }
+
 }

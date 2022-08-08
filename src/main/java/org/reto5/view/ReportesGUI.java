@@ -21,7 +21,7 @@ public class ReportesGUI extends JFrame{
     public ReportesGUI() {
         setContentPane(mainPanel);
         setTitle("REPORTES");
-        setSize(new Dimension(400, 400));
+        setSize(new Dimension(250, 300));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

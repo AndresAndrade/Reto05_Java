@@ -5,6 +5,7 @@ import org.reto5.model.vo.LiderVo;
 import org.reto5.util.TableUtil;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -27,6 +28,7 @@ public class ReporteLideresGUI extends JFrame{
     private JLabel lbCiudad;
     private JButton btnMostrar;
     private JButton btnRegresar;
+    private JScrollPane scrollPane1;
 
     public ReporteLideresGUI() {
         controller = new ReportesController();
@@ -47,6 +49,8 @@ public class ReporteLideresGUI extends JFrame{
         header.setBackground(myColor);
         Font myFont = new Font("Roboto",Font.BOLD, 16);
         header.setFont(myFont);
+
+
 
         //Colores intercalados en filas
         tableUtil = new TableUtil();
@@ -158,4 +162,5 @@ public class ReporteLideresGUI extends JFrame{
     public static void main(String[] args) {
         ReporteLideresGUI myReporteLideres = new ReporteLideresGUI();
     }
+
 }

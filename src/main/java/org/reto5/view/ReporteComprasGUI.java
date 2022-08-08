@@ -5,6 +5,7 @@ import org.reto5.model.vo.ComprasVo;
 import org.reto5.util.TableUtil;
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -20,6 +21,11 @@ public class ReporteComprasGUI extends JFrame {
     private ReportesGUI reportesGUI;
     private JTableHeader header;
     private TableUtil tableUtil;
+    private JMenuBar menuBar;
+    private JMenu mInformes;
+    private JMenuItem mInicio;
+    private JMenuItem mProyectos;
+    private JMenuItem mLideres;
     private JTable tbCompras;
     private JComboBox cbProveedor;
     private JComboBox cbCiudad;
