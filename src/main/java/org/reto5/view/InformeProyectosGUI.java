@@ -14,11 +14,11 @@ import java.sql.SQLException;
 import java.util.Arrays;
 import java.util.List;
 
-public class ReporteProyectosGUI extends JFrame{
+public class InformeProyectosGUI extends JFrame{
 
-    private ReportesGUI reportesGUI;
-    private ReporteComprasGUI reporteComprasGUI;
-    private ReporteLideresGUI reporteLideresGUI;
+    private MenuGUI menuGUI;
+    private InformeComprasGUI informeComprasGUI;
+    private InformeLideresGUI informeLideresGUI;
     private ReportesController controller;
     private DefaultTableModel tableModel;
     private JTableHeader header;
@@ -39,10 +39,10 @@ public class ReporteProyectosGUI extends JFrame{
     private JButton btnCompras;
     private JButton btnLideres;
 
-    public ReporteProyectosGUI() {
+    public InformeProyectosGUI() {
         controller = new ReportesController();
         setContentPane(mainPanel);
-        setTitle("REPORTE PROYECTOS");
+        setTitle("INFORME PROYECTOS");
         setSize(new Dimension(550, 600));
         setLocationRelativeTo(null);
         setLocationByPlatform(false);
@@ -107,7 +107,7 @@ public class ReporteProyectosGUI extends JFrame{
         btnRegresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reportesGUI = new ReportesGUI();
+                menuGUI = new MenuGUI();
                 dispose();
             }
         });
@@ -130,7 +130,7 @@ public class ReporteProyectosGUI extends JFrame{
         btnCompras.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reporteComprasGUI = new ReporteComprasGUI();
+                informeComprasGUI = new InformeComprasGUI();
                 dispose();
             }
         });
@@ -138,7 +138,7 @@ public class ReporteProyectosGUI extends JFrame{
         btnLideres.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reporteLideresGUI = new ReporteLideresGUI();
+                informeLideresGUI = new InformeLideresGUI();
                 dispose();
             }
         });

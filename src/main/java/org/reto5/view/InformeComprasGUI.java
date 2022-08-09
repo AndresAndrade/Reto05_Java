@@ -5,7 +5,6 @@ import org.reto5.model.vo.ComprasVo;
 import org.reto5.util.TableUtil;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableCellRenderer;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import java.awt.*;
@@ -14,13 +13,13 @@ import java.awt.event.ActionListener;
 import java.sql.SQLException;
 import java.util.List;
 
-public class ReporteComprasGUI extends JFrame {
+public class InformeComprasGUI extends JFrame {
 
     private DefaultTableModel tableModel;
     private ReportesController controller;
-    private ReportesGUI reportesGUI;
-    private ReporteLideresGUI reporteLideresGUI;
-    private ReporteProyectosGUI reporteProyectosGUI;
+    private MenuGUI menuGUI;
+    private InformeLideresGUI informeLideresGUI;
+    private InformeProyectosGUI informeProyectosGUI;
     private JTableHeader header;
     private TableUtil tableUtil;
     private JMenuBar menuBar;
@@ -40,10 +39,10 @@ public class ReporteComprasGUI extends JFrame {
     private JButton btnProyectos;
     private JButton btnLideres;
 
-    public ReporteComprasGUI() {
+    public InformeComprasGUI() {
         controller = new ReportesController();
         setContentPane(mainPanel);
-        setTitle("REPORTE COMPRAS");
+        setTitle("INFORME COMPRAS");
         setSize(new Dimension(450, 600));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -100,8 +99,8 @@ public class ReporteComprasGUI extends JFrame {
         btnRegresar.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reportesGUI = new ReportesGUI();
-                reportesGUI.setVisible(true);
+                menuGUI = new MenuGUI();
+                menuGUI.setVisible(true);
                 dispose();
             }
         });
@@ -122,7 +121,7 @@ public class ReporteComprasGUI extends JFrame {
         btnProyectos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reporteProyectosGUI = new ReporteProyectosGUI();
+                informeProyectosGUI = new InformeProyectosGUI();
                 dispose();
             }
         });
@@ -130,7 +129,7 @@ public class ReporteComprasGUI extends JFrame {
         btnLideres.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                reporteLideresGUI = new ReporteLideresGUI();
+                informeLideresGUI = new InformeLideresGUI();
                 dispose();
             }
         });
