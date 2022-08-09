@@ -194,7 +194,4 @@ public class ReporteProyectosGUI extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        ReporteProyectosGUI myProyectosGUI = new ReporteProyectosGUI();
-    }
 }

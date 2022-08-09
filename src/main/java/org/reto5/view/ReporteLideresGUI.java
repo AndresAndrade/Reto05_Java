@@ -178,8 +178,4 @@ public class ReporteLideresGUI extends JFrame{
         }
     }
 
-    public static void main(String[] args) {
-        ReporteLideresGUI myReporteLideres = new ReporteLideresGUI();
-    }
-
 }

@@ -49,7 +49,4 @@ public class ReportesGUI extends JFrame{
         });
     }
 
-    public static void main(String[] args) {
-        ReportesGUI myReportesGUI = new ReportesGUI();
-    }
 }

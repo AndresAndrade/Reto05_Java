@@ -188,10 +188,4 @@ public class ReporteComprasGUI extends JFrame {
         }
     }
 
-
-
-    public static void main(String[] args) throws SQLException {
-        ReporteComprasGUI myReportesComprasGUI = new ReporteComprasGUI();
-    }
-
 }
