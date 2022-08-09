@@ -44,7 +44,7 @@ public class ReporteComprasGUI extends JFrame {
         controller = new ReportesController();
         setContentPane(mainPanel);
         setTitle("REPORTE COMPRAS");
-        setSize(new Dimension(550, 600));
+        setSize(new Dimension(450, 600));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

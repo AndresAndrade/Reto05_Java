@@ -38,7 +38,7 @@ public class ReporteLideresGUI extends JFrame{
         controller = new ReportesController();
         setContentPane(mainPanel);
         setTitle("REPORTE LIDERES");
-        setSize(new Dimension(650, 600));
+        setSize(new Dimension(700, 600));
         setLocationRelativeTo(null);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);

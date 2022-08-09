@@ -52,7 +52,7 @@ public class ReporteProyectosGUI extends JFrame{
 
         //Encabezados de la tabla
         tbProyectos.setFillsViewportHeight(true);
-        String[] encabezados = new String[]{"ID Proyecto", "Constructora", "Número de Habitaciones", "Ciudad"};
+        String[] encabezados = new String[]{"ID Proyecto", "Constructora", "Habitaciones", "Ciudad"};
         tableModel = new DefaultTableModel(null, encabezados);
         tbProyectos.setModel(tableModel);
         header = tbProyectos.getTableHeader();
