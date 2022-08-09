@@ -29,9 +29,4 @@ public class ComprasVo {
     public void setBancoVinculado(String bancoVinculado) {
         this.bancoVinculado = bancoVinculado;
     }
-
-    @Override
-    public String toString() {
-        return String.format("%-6d %-25s %s", idCompra, constructora, bancoVinculado);
-    }
 }

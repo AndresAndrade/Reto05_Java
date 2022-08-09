@@ -39,10 +39,4 @@ public class ProyectosVo {
         this.ciudad = ciudad;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%-6d %-30s %-16d %-25s",
-                idProyecto, constructora, numeroHabitaciones, ciudad);
-        //TODO arreglar el formato
-    }
 }

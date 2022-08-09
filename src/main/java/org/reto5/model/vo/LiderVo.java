@@ -39,10 +39,4 @@ public class LiderVo {
         this.ciudadResidencia = ciudadResidencia;
     }
 
-    @Override
-    public String toString() {
-        return String.format("%3d %-10s %-10s %-15s",
-                idLider, nombre, primerApellido, ciudadResidencia);
-        //TODO Arreglar el formato
-    }
 }
